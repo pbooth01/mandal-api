@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "title": "followRequest",
+    "required": [
+      "_id",
+      "user",
+      "followRequester",
+      "createdAt",
+      "updatedAt"
+    ],
+    "properties": {
+      "_id": {
+        "type": "string",
+        "example": "639975ed135e7eab51f0760f"
+      },
+      "user": {
+        "type": "string",
+        "example": "639973ede57b3d64ed8ef0ab"
+      },
+      "followRequester": {
+        "type": "string",
+        "example": "639973b7e57b3d64ed8ef0a7"
+      },
+      "createdAt": {
+        "type": "string",
+        "example": "2022-12-14T07:06:21.721Z"
+      },
+      "updatedAt": {
+        "type": "string",
+        "example": "2022-12-14T07:06:21.721Z"
+      }
+    }
+  }

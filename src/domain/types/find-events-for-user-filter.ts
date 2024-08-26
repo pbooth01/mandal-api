@@ -1,0 +1,1 @@
+export type FindEventForUserFilter = "created" | "joined" | "all";

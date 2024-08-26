@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "title": "createUserRequest",
+  "required": [
+    "name",
+    "email"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "user1"
+    },
+    "email": {
+      "type": "string",
+      "example": "user1@gmail.com"
+    }
+  }
+}

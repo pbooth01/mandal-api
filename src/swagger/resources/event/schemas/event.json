@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "title": "createUserRequest",
+  "required": [
+    "name",
+    "startTime",
+    "endTime",
+    "chainable"
+  ],
+  "properties": {
+    "_id": {
+      "type": "string",
+      "example": "kaskmsmkskfmkmfkmd"
+    },
+    "name": {
+      "type": "string",
+      "example": "user1"
+    },
+    "description": {
+      "type": "string",
+      "example": "user1"
+    },
+    "startTime": {
+      "type": "string",
+      "example": "user1"
+    },
+    "endTime": {
+      "type": "string",
+      "example": "user1"
+    },
+    "chainable": {
+      "type": "boolean",
+      "example": "user1@gmail.com"
+    },
+    "event_location": {
+      "type": "object",
+      "title":"eventLocation",
+      "required": [
+        "name",
+        "lat",
+        "lon"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "user1"
+        },
+        "lat": {
+          "type": "number",
+          "example": "user1"
+        },
+        "lon": {
+          "type": "number",
+          "example": "user1"
+        }
+      }
+    }
+  }
+}

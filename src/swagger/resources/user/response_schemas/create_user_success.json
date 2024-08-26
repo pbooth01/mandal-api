@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "title": "createUserSuccess",
+  "required": [
+    "code",
+    "success",
+    "data"
+  ],
+  "properties": {
+    "code": {
+      "type": "number",
+      "example": 201
+    },
+    "success": {
+      "type": "boolean",
+      "example": true
+    },
+    "data": {
+      "type": "object",
+      "$ref": "../schemas/user.json"
+    }
+  }
+}

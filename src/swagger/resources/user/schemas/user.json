@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "title": "user",
+  "required": [
+    "id",
+    "name",
+    "email"
+  ],
+  "properties": {
+    "_id": {
+      "type": "string",
+      "example": "2"
+    },
+    "name": {
+      "type": "string",
+      "example": "User1"
+    },
+    "email": {
+      "type": "string",
+      "example": "user1@gmail.com"
+    }
+  }
+}

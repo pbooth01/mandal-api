@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "title": "patchFollowRequest",
+    "required": [
+      "requestStatus"
+    ],
+    "properties": {
+      "requestStatus": {
+        "type": "string",
+        "enum":["accepted", "declined", "pending"],
+        "example": "accepted"
+      }
+    }
+  }

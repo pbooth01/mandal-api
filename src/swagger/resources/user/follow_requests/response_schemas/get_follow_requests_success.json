@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "title": "getFollowRequestsSuccess",
+    "required": [
+      "code",
+      "success",
+      "data"
+    ],
+    "properties": {
+      "code": {
+        "type": "number",
+        "example": 200
+      },
+      "success": {
+        "type": "boolean",
+        "example": true
+      },
+      "data": {
+        "type": "array",
+        "items": {
+          "$ref": "../schemas/follow_request.json"
+        }
+      }
+    }
+  }

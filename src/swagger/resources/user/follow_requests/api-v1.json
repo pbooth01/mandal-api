@@ -1,0 +1,136 @@
+{
+    "FollowRequestPath": {
+        "get": {
+            "tags": [
+                "Follow Requests"
+            ],
+            "summary": "Get a list of follow requests for a user",
+            "description": "This method creates a new user in the database",
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "User ID to request follow requests for."
+                },
+                {
+                    "name": "requestStatus",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "Request status used to filter follow requests. Can be PENDING | ACCEPTED | DECLINED"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "./response_schemas/get_follow_requests_success.json"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "post": {
+            "tags": [
+                "Follow Requests"
+            ],
+            "summary": "Create New Follow Request",
+            "description": "This method creates a new user in the database",
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "USer ID of the user to create a follow request for."
+                }
+            ],
+            "responses": {
+                "201": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "./response_schemas/patch_follow_success.json"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "FollowRequestByIdPath": {
+        "patch": {
+            "tags": [
+                "Follow Requests"
+            ],
+            "summary": "Update a Follow Request",
+            "description": "This method updates an existing follow request in the database",
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "UserId of the follow request owner"
+                },
+                {
+                    "name": "requestId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "Id of the existing follow request"
+                }
+            ],
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "./request_schemas/patch_follow_request.json",
+                            "example": {
+                                "requestStatus": "accepted"
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "./response_schemas/patch_follow_success.json"
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "../../generic/response_schemas/resource_not_found.json"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

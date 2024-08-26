@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "title": "resourceNotFound",
+    "required": [
+      "code",
+      "success",
+      "data"
+    ],
+    "properties": {
+      "code": {
+        "type": "number",
+        "example": 404
+      },
+      "success": {
+        "type": "boolean",
+        "example": false
+      },
+      "data": {
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Resource Not Found."
+                    }
+                }
+            }
+        }
+      }
+    }
+  }

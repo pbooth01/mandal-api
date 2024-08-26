@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  mandala-api:
+    container_name: mandala-api
+    restart: always
+    depends_on:
+      - mongodb
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        - PORT=${PORT}
+    ports:
+      - 8000:${PORT}
+    env_file:
+      - ./src/application/config/dev.env
+    volumes:
+      - ./:/usr/src/app
+      - ignore:/usr/src/app/node_modules/
+  
+  mongodb:
+    image: mongo:5.0.14
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    env_file:
+      - ./src/application/config/dev.env
+    volumes:
+      - mongodb-data:/data/db
+      - ./src/application/config/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+  
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: swagger_ui_container
+    ports:
+        - "8001:8080"
+    volumes:
+        - ./src/swagger:/usr/share/nginx/html/doc
+    environment:
+        # API_URL: doc/openapi.yaml
+        URLS: "[
+            { url: \"doc/user-api.json\", name: \"UserManagement\" },
+          ]"
+volumes:
+  ignore:
+  mongodb-data:

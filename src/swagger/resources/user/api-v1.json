@@ -1,0 +1,96 @@
+{
+    "UserPath": {
+        "post": {
+            "tags": [
+                "User"
+            ],
+            "summary": "Create New User",
+            "description": "This method creates a new user in the database",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "./request_schemas/create_user.json",
+                            "example": {
+                                "name": "User1",
+                                "email": "user1@gmail.com"
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "./response_schemas/create_user_success.json"
+                            }
+                        }
+                    }
+                },
+                "400": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "example":{
+                                "success": false,
+                                "code": 400,
+                                "error": {
+                                  "name": "ApplicationError",
+                                  "type": "APP_NAME",
+                                  "code": "EMAIL_ALREADY_TAKEN",
+                                  "message": "The given email address is already taken.",
+                                  "statusCode": 400
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "UserByIdPath": {
+        "get": {
+            "tags": [
+                "User"
+            ],
+            "summary": "Get User ProfileInfo",
+            "description": "This method requests user info from the database",
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "description": "USer ID to request information for"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "./response_schemas/user_details.json"
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "",
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "$ref": "../generic/response_schemas/resource_not_found.json"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
